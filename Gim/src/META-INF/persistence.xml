@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="gim">
+			<provider>org.hibernate.ejb.HibernatePersistence</provider>
+			
+		<class>com.gim.entity.Cmy_Mst</class>
+		<class>com.gim.entity.Dpt_Mst</class>
+		<class>com.gim.entity.Bom_Mst</class>
+		<class>com.gim.entity.Str_Mst</class>
+		<class>com.gim.entity.Uom_Mst</class>
+		<class>com.gim.entity.Prcs_Mst</class>
+		<class>com.gim.entity.Stn_Mst</class>
+		<class>com.gim.entity.Mold_Mst</class>
+		<class>com.gim.entity.Raw_Mtr_Mst</class>
+		<class>com.gim.entity.DayWise_Prc_Mst</class>
+		<class>com.gim.entity.Emp_Mst</class>
+		<class>com.gim.entity.Vn_Ct_Mst</class>
+		<class>com.gim.entity.Dgn_Mst</class>
+		<class>com.gim.entity.Dgn_Stn_Mst</class>
+		<class>com.gim.entity.Dgn_Bom_Mst</class>
+		<class>com.gim.entity.Dgn_Mold_Mst</class>
+		<class>com.gim.entity.Dgn_Cst_Mst</class>
+		<class>com.gim.entity.Ord_Hdr_Dtl</class>
+		<class>com.gim.entity.Ord_Hdr</class>
+		<class>com.gim.entity.Wax_Hdr</class>
+		<class>com.gim.entity.Wax_Hdr_Dtl</class>
+		<class>com.gim.entity.Tree_Gen_Hdr_Dtl</class>
+		<class>com.gim.entity.Tree_Gen_Hdr</class>
+		<class>com.gim.entity.Iwd_Hdr</class>
+		<class>com.gim.entity.Iwd_Hdr_Dtl</class>
+		<class>com.gim.entity.Stk_Mst</class>
+		<class>com.gim.entity.Itm_Mv</class>
+		<class>com.gim.entity.Aly_Mst</class>
+		<class>com.gim.entity.Aly_Prcs_Hdr_Dtl</class>
+		<class>com.gim.entity.Aly_Prcs_Hdr</class>
+		<class>com.gim.entity.Cst_Prcs_Hdr</class>
+		<class>com.gim.entity.Cst_Prcs_Hdr_Dtl</class>
+		<class>com.gim.entity.Job_Ord_Hdr</class>
+		<class>com.gim.entity.Job_Ord_Hdr_Dtl</class>
+		<class>com.gim.entity.Intl_Trf_Hdr_Dtl</class>
+		<class>com.gim.entity.Intl_Trf_Hdr</class>
+		<class>com.gim.entity.Sub_Prcs_Hdr</class>
+		<class>com.gim.entity.Sub_Prcs_Hdr_Dtl</class>
+		<class>com.gim.entity.Mn_Prcs_Hdr</class>	
+		<class>com.gim.entity.Mn_Prcs_Hdr_Dtl</class>
+		<class>com.gim.entity.Mn_Prcs_Tmp_Dtl</class>
+		<class>com.gim.entity.Mn_Prcs_Tmp_Hdr</class>
+		<class>com.gim.entity.Rcvd_Doc_Hdr</class>
+		<class>com.gim.entity.Rcvd_Doc_Dtl</class>
+		<class>com.gim.entity.Carat_Mst</class>
+		<class>com.gim.entity.Spcl_Stk_Mst</class>
+		<class>com.gim.entity.Bom_Iss_Job_Dtl</class>
+			<class>com.gim.entity.Mn_Prcs_Job_Hdr</class>
+				<class>com.gim.entity.Mn_Prcs_Job_Dtl</class>
+				<class>com.gim.entity.Dc_Hdr</class>
+				<class>com.gim.entity.Dc_Hdr_Dtl</class>
+				<class>com.gim.entity.Fnsh_Pdt_Hdr</class>
+		<class>com.gim.entity.Fnsh_Pdt_Dtl</class>
+		<class>com.gim.entity.Rcvy_Hdr</class>
+		<class>com.gim.entity.Rcvy_Hdr_Dtl</class>
+			<class>com.gim.entity.Rcvy_Emp_Stk</class>
+			<class>com.gim.entity.Auth_Mst</class>
+			
+		<class>com.gim.entity.Bom_InHse_Dtl</class>
+		
+		
+		
+		<class>com.gim.entity.Stone_Stk</class>
+			<class>com.gim.entity.Report_Details</class>
+			<class>com.gim.entity.Job_Card_Stn_Dtls</class>
+			<class>com.gim.entity.Job_Card_Dtl</class>
+			<class>com.gim.entity.Dc_Scrp_Isd_Dtl</class>
+			<class>com.gim.entity.Bom_Stk</class>
+			<class>com.gim.entity.User_Permission</class>
+			<class>com.gim.entity.Test_Samples</class>
+			<class>com.gim.entity.Sub_Melt_Dtl</class>
+			<class>com.gim.entity.Btw_Mst</class>
+		<properties>
+			<property name="connection.provider_class"
+				value="org.hibernate.connection.C3P0ConnectionProvider" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.username" value="" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+		</properties>
+
+	</persistence-unit>
+</persistence>

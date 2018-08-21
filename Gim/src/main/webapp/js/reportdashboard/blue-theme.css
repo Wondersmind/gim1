@@ -1,0 +1,209 @@
+
+
+/* Ag-Grid Customeised Design */
+
+.ag-header-viewport {
+     background: #004274 !important;
+    font-size: 15px;
+    color: #ffffff !important;
+}
+.ag-theme-fresh .ag-menu .ag-menu-option-active {
+    background: #fdb64b;
+}
+
+.ag-theme-fresh .ag-column-select-panel .ag-column-select-column-group, .ag-theme-fresh .ag-column-select-panel .ag-column-select-column {
+    height: 20px;
+    line-height: 20px;
+    width: max-content !important;
+}
+.ag-theme-fresh .ag-column-drop-vertical .ag-column-drop-cell {
+    display: block;
+    float: none;
+    width: max-content;
+    min-width: -webkit-fill-available;
+}
+
+.ag-theme-fresh .ag-header-cell-label .ag-header-cell-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif !important;
+}
+.ag-cell-value {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    
+}
+
+.TotalRowGrp{
+    background: #089de6 !important;
+    font-weight: bold !important;
+    color: white !important;
+}
+.ag-layout-normal .ag-body-viewport {
+    background: white !important;
+}
+
+.ag-theme-fresh .ag-status-bar {
+  background: #fdb64b !important;
+    color: black !important;
+    border: 1px solid #a9a9a9!important;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3px 16px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    height: 25px !important;
+}
+
+.ag-theme-fresh .ag-tool-panel .ag-column-select-panel {
+    border-bottom: 1px solid darkgrey;
+    padding: 4px 0;
+    padding-bottom: 3px;
+    max-height: 250px !important;
+    overflow-y: auto !important;
+}
+
+.ag-tool-panel {
+    width: 230px !important;
+   border-right: 0;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: small !important;
+        background-color: #ffffff !important;
+}
+.ag-theme-fresh .ag-column-drop-cell .ag-column-drop-cell-button:hover {
+   border: 1px solid #bf1b1b;
+    border-radius: 7px;
+    color: #bf1b1b !important;
+}
+ .ag-theme-fresh .ag-tool-panel .ag-column-drop {
+  max-height: 110px !important;
+}
+.ag-cell{
+    border-bottom: 1px solid #bbbbbb !important;
+    border-right: 1px solid #bbbbbb !important;
+}
+.ag-theme-fresh .ag-menu {
+    background: #ffffff !important;
+    border-radius: 2px !important;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+    padding: 0px !important;
+    z-index: 5 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: small !important;
+}
+.ag-theme-fresh .ag-tab-header {
+    background: #eeeeee !important;
+    display: table !important;
+    min-width: 220px !important;
+    width: 100% !important;
+}
+.ag-theme-fresh .ag-tab-header .ag-tab.ag-tab-selected {
+       background-color: #f6f6f6 !important;
+    border-color: #f6f6f6 !important;
+       border-bottom: 2px solid #2d323e !important;
+}
+.ag-theme-fresh .ag-tab-header .ag-tab {
+    display: table-cell !important;
+    height: 15px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+.ag-theme-fresh .ag-menu .ag-menu-option {
+    line-height: 25px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+.ag-theme-fresh .ag-column-select-panel .ag-column-select-column-group, .ag-theme-fresh .ag-column-select-panel .ag-column-select-column {
+    height: 26px !important;
+    line-height: 25px !important;
+    width: max-content !important;
+}
+
+.ag-theme-fresh .ag-column-drop-vertical .ag-column-drop-cell {
+    display: block;
+    width: max-content !important;
+    min-width: -webkit-fill-available !important;
+    float: left !important;
+    margin-bottom: 5px !important;
+    border-radius: 2px !important;
+    padding: 0 2px !important;
+    background: #e0e0e0;
+    box-sizing: content-box;
+}
+.ag-theme-fresh .ag-tool-panel .ag-column-drop,.ag-theme-fresh .ag-tool-panel .ag-pivot-mode,.ag-theme-fresh .ag-tool-panel .ag-column-select-panel {
+    border-bottom: 1px solid #fc9802 !important;
+}
+
+.ulColumnCustomise{
+    list-style: none;
+    padding: 1px;
+    line-height: 25px;
+    height: 150px;
+    overflow: auto;
+}
+.liTagsOfColumns{
+    width: max-content !important;
+    min-width: -webkit-fill-available ;
+    margin-bottom: 5px !important;
+    padding: 0 2px !important;
+    background: #e0e0e0;
+    box-sizing: content-box;
+    z-index: 999999 !important;
+}
+.whiledrag{
+    min-width: unset !important;;
+}
+
+.ag-bl-overlay {
+   z-index: 99999999 !important;
+}
+
+.ag-theme-fresh .ag-select-agg-func-popup {
+   font-family: 'Montserrat', sans-serif !important;
+}
+.ag-theme-fresh .ag-select-agg-func-popup .ag-virtual-list-item:hover {
+     background-color: #167BBE !important;
+    color: #01252c;
+}
+
+
+.TotalRowGrp {
+    background:#004274 !important;
+    font-weight: bold !important;
+       color: #ffffff !important;
+    background-image: url(../images/header-bg.png) !important;
+}
+.ag-theme-fresh .ag-status-bar .ag-status-bar-item span:nth-child(2) {
+    color: white !important;
+}
+
+.ag-theme-fresh .ag-status-bar {
+      background: #004274 !important;
+    color: white !important;
+}
+.ag-theme-fresh .ag-menu .ag-menu-option-active {
+           background: #167BBE !important;
+    color: #ffffff !important;
+}
+
+.ag-theme-fresh .ag-tool-panel .ag-column-drop .ag-column-drop-empty-message {
+    line-height: 16px;
+    font-family: 'Montserrat', sans-serif !important;
+}
+.ag-theme-fresh .ag-tool-panel .ag-column-drop, .ag-theme-fresh .ag-tool-panel .ag-pivot-mode, .ag-theme-fresh .ag-tool-panel .ag-column-select-panel {
+      border-bottom: 1px solid #167BBE !important;
+}
+.oveerLay{
+	padding: 10px !important;
+    border: 2px solid #444 !important;
+    background: #167BBE !important;
+    color: white !important;
+}
+
+thead {
+    background: #167bbe !important;
+    color: white;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif !important;
+     background-image: url(../images/header-bg.png) !important;
+}

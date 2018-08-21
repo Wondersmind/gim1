@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/task 
+http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:component-scan base-package="com.gim.web" />
+	<context:component-scan base-package="com.gim.Service" />
+
+	<context:property-placeholder
+		location="classpath:config-${run.mode:default}.properties" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="order" value="1" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="order" value="2" />
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>messages</value>
+		</property>
+	</bean>
+	<!-- Mail sender configured for using Gmail -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+		p:host="smtp.gmail.com" p:username="${mail.userName}" p:password="${mail.password}">
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="mailManager" class="com.gim.util.MailManager">
+		<property name="mailSender" ref="mailSender" />
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="fromAddress" value="${mail.userName}" />
+		<property name="fromName" value="${mail.fromName}" />
+		<property name="appUrl" value="${app.url}" />
+		<property name="pathImg" value="${Imgpath}" />
+	</bean>
+<!-- 	<bean id="GimController" class="com.gim.web.GimController">
+		
+	</bean> -->
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+		<property name="sessionFactory" ref="sessionFactory" /> <property name="hibernate.connection.url" 
+		value="jdbc:mysql://localhost:3306/test?autoReconnect=true"/> </bean> -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<value> resource.loader=class
+				class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+			</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+		<property name="driverClassName" value="${hibernate.driver_class}" />
+		<property name="url" value="${mysql.url}" />
+		<property name="username" value="${mysql.user}" />
+		<property name="password" value="${mysql.password}" />
+		<property name="validationQuery" value="select 1" />
+	</bean>
+
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+			<value>com.gim.entity.User</value>
+			<value>com.gim.entity.Cmy_Mst</value>
+			<value>com.gim.entity.Dpt_Mst</value>
+			<value>com.gim.entity.Bom_Mst</value>
+			<value>com.gim.entity.Str_Mst</value>
+			<value>com.gim.entity.Uom_Mst</value>
+			<value>com.gim.entity.Prcs_Mst</value>
+			<value>com.gim.entity.Stn_Mst</value>
+			<value>com.gim.entity.Mold_Mst</value>
+			<value>com.gim.entity.Raw_Mtr_Mst</value>
+			<value>com.gim.entity.DayWise_Prc_Mst</value>
+			<value>com.gim.entity.Emp_Mst</value>
+			<value>com.gim.entity.Vn_Ct_Mst</value>
+			<value>com.gim.entity.Dgn_Mst</value>
+			<value>com.gim.entity.Dgn_Stn_Mst</value>
+			<value>com.gim.entity.Dgn_Bom_Mst</value>
+			<value>com.gim.entity.Dgn_Mold_Mst</value>
+			<value>com.gim.entity.Dgn_Cst_Mst</value>
+			<value>com.gim.entity.Ord_Hdr_Dtl</value>
+			<value>com.gim.entity.Ord_Hdr</value>
+			<value>com.gim.entity.Wax_Hdr</value>
+			<value>com.gim.entity.Wax_Hdr_Dtl</value>
+			<value>com.gim.entity.Tree_Gen_Hdr_Dtl</value>
+			<value>com.gim.entity.Tree_Gen_Hdr</value>
+			<value>com.gim.entity.Iwd_Hdr</value>
+			<value>com.gim.entity.Iwd_Hdr_Dtl</value>
+			<value>com.gim.entity.Stk_Mst</value>
+			<value>com.gim.entity.Itm_Mv</value>
+			<value>com.gim.entity.Aly_Mst</value>
+			<value>com.gim.entity.Aly_Prcs_Hdr_Dtl</value>
+			<value>com.gim.entity.Aly_Prcs_Hdr</value>
+			<value>com.gim.entity.Cst_Prcs_Hdr</value>
+			<value>com.gim.entity.Cst_Prcs_Hdr_Dtl</value>
+			<value>com.gim.entity.Job_Ord_Hdr</value>
+			<value>com.gim.entity.Job_Ord_Hdr_Dtl</value>
+			<value>com.gim.entity.Intl_Trf_Hdr_Dtl</value>
+			<value>com.gim.entity.Intl_Trf_Hdr</value>
+			<value>com.gim.entity.Rcvy_Hdr</value>
+		<value>com.gim.entity.Rcvy_Hdr_Dtl</value>
+				<value>com.gim.entity.Sub_Prcs_Hdr</value>
+					<value>com.gim.entity.Sub_Prcs_Hdr_Dtl</value>
+						<value>com.gim.entity.Mn_Prcs_Hdr</value>
+							<value>com.gim.entity.Mn_Prcs_Hdr_Dtl</value>
+								<value>com.gim.entity.Mn_Prcs_Tmp_Dtl</value>
+		<value>com.gim.entity.Mn_Prcs_Tmp_Hdr</value>
+			<value>com.gim.entity.Mn_Prcs_Job_Hdr</value>
+				<value>com.gim.entity.Mn_Prcs_Job_Dtl</value>
+		<value>com.gim.entity.Rcvd_Doc_Hdr</value>
+		<value>com.gim.entity.Rcvd_Doc_Dtl</value>
+		<value>com.gim.entity.Carat_Mst</value>
+		<value>com.gim.entity.Spcl_Stk_Mst</value>
+		<value>com.gim.entity.Bom_Iss_Job_Dtl</value>
+		<value>com.gim.entity.Dc_Hdr</value>
+		<value>com.gim.entity.Dc_Hdr_Dtl</value>
+			<value>com.gim.entity.Fnsh_Pdt_Hdr</value>
+		<value>com.gim.entity.Fnsh_Pdt_Dtl</value>
+		<value>com.gim.entity.Rcvy_Emp_Stk</value>
+			<value>com.gim.entity.Auth_Mst</value>
+			<value>com.gim.entity.Bom_InHse_Dtl</value>
+				<value>com.gim.entity.Job_Card_Dtl</value>
+				<value>com.gim.entity.User_Permission</value>
+				<value>com.gim.entity.Test_Samples</value>
+				<value>com.gim.entity.Job_Card_Stn_Dtls</value>
+				<value>com.gim.entity.Bom_Stk</value>
+					<value>com.gim.entity.Stone_Stk</value>
+					<value>com.gim.entity.Sub_Melt_Dtl</value>
+					<value>com.gim.entity.Dc_Scrp_Isd_Dtl</value>
+					<value>com.gim.entity.Report_Details</value>
+					<value>com.gim.entity.Btw_Mst</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="GimManager" class="com.gim.Service.GimManagerImpl">
+	<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userDao" class="com.gim.dao.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="ar" />
+	</bean>
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="language" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor" />
+			</list>
+		</property>
+	</bean>
+</beans>
